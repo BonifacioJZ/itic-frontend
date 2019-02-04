@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar  color="primary" class="text-md-center" app>
+    <v-toolbar  color="primary" app>
       <section id="logo">
         <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
           <a href="#">
@@ -26,7 +26,7 @@
     </v-toolbar>
 
     <v-content>
-    
+      <home></home>
     </v-content>
   </v-app>
 </template>
@@ -34,11 +34,12 @@
 <script>
 
 import Logo from './assets/Calca_TIC.png'
+import Home from './views/Home'
 
 export default {
   name: 'App',
   components: {
-
+    Home
   },
   data () {
     return {
