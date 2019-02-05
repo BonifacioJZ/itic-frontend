@@ -19,7 +19,7 @@
                     </v-list-tile>
                 </v-list>
             </v-toolbar>
-        <v-list-tile v-for="item in items" :key="item.text" @click="clickl(item.text)" >
+        <v-list-tile v-for="item in items" :key="item.text" @click="link(item.path)" >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -47,7 +47,7 @@
             <v-list-tile
               v-for="subproceso in proceso.items"
               :key="subproceso.title"
-              @click="clickl(subproceso.title)"
+              @click="link(subproceso.name)"
               >
                 <v-list-tile-content>
                     <v-list-tile-title>{{ subproceso.title }}</v-list-tile-title>
@@ -85,6 +85,8 @@
     </v-toolbar>
     </section>
 </template>
+
+
 <script>
 import logo from '../assets/Calca_TIC.png'
     export default{
@@ -94,7 +96,7 @@ import logo from '../assets/Calca_TIC.png'
             logo,
             drawer:true,
             items:[
-              {icon:"home",text:"Home"},
+              {icon:"home",text:"Home",path:""},
               {icon:"android",text:"About"}
               ],
             procesos:[
@@ -103,8 +105,8 @@ import logo from '../assets/Calca_TIC.png'
                 text:"Procesos",
                 active:false,
                 items:[
-                  {title:"Servicio Social"},
-                  {title:"Residencias Profecionales"}
+                  {title:"Servicio Social",name:"servicio"},
+                  {title:"Residencias Profecionales",name:"recidencias"}
                 ]
               }
             ]
@@ -117,6 +119,9 @@ import logo from '../assets/Calca_TIC.png'
           },
           clickl(texto){
             console.log(`path ${texto}`)
+          },
+          link(name){
+            this.$router.push({path:`/${name}`})
           }
         }
     }
