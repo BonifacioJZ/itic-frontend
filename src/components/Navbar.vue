@@ -24,7 +24,7 @@
                     </v-list-tile>
                 </v-list>
             </v-toolbar>
-        <v-list-tile v-for="item in items" :key="item.text" >
+        <v-list-tile v-for="item in items" :key="item.text" @click="clickl(item.text)" >
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -83,6 +83,9 @@ import logo from '../assets/Calca_TIC.png'
         methods:{
           cambio(){
             this.drawer= !this.drawer
+          },
+          clickl(texto){
+            console.log(`path ${texto}`)
           }
         }
     }
