@@ -8,12 +8,7 @@
       app>
         <v-list dense>
             <v-toolbar  class="hidden-sm-and-down" color="white" flat>
-                <v-list>
-                    <v-list-tile>
-                        <v-list-tile-title class="title">
-                        </v-list-tile-title>
-                    </v-list-tile>
-                </v-list>
+              <v-spacer></v-spacer>
             </v-toolbar>
              <v-toolbar  class="hidden-md-and-up"  flat>
                 <v-list>
@@ -34,6 +29,31 @@
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
+      </v-list>
+      <v-list>
+        <v-list-group
+          v-for="proceso in procesos"
+          v-model="proceso.active"
+          :key="proceso.text"
+          :prepend-icon="proceso.icon"
+          no-action>
+            <v-list-tile slot="activator">
+                <v-list-tile-content>
+                  <v-list-tile-title>
+                    {{ proceso.text }}
+                  </v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+            <v-list-tile
+              v-for="subproceso in proceso.items"
+              :key="subproceso.title"
+              @click="clickl(subproceso.title)"
+              >
+                <v-list-tile-content>
+                    <v-list-tile-title>{{ subproceso.title }}</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar  
@@ -76,7 +96,18 @@ import logo from '../assets/Calca_TIC.png'
             items:[
               {icon:"home",text:"Home"},
               {icon:"android",text:"About"}
-              ]
+              ],
+            procesos:[
+              {
+                icon:"cached",
+                text:"Procesos",
+                active:false,
+                items:[
+                  {title:"Servicio Social"},
+                  {title:"Residencias Profecionales"}
+                ]
+              }
+            ]
             
             }
         },
