@@ -1,14 +1,52 @@
 <template>
-    <v-container fill-height>
-        <v-layout justify-center align-center>
-            <v-flex shrink>
-              <h1>Servicio</h1>
-          </v-flex>
-        </v-layout>
-    </v-container>
+   <div>
+     <v-container>
+       <Proceso :Procesos="procesos"></Proceso>
+     </v-container>
+   </div>
 </template>
 <script>
+import Proceso from '../../components/procesos/Proceso'
 export default {
-    name: "servicio"
+    name: "servicio",
+    data: ()=>{
+        return{
+            procesos:[
+        {
+          color: 'red lighten-2',
+          icon: 'mdi-star',
+          titulo:'Proceso 1',
+          descripcion:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, maxime? Itaque dolore, natus repellendus nostrum ullam magni voluptate, perferendis eum facilis commodi consectetur provident, amet error quam delectus? Illo, cumque?',
+          archivo:1
+        },
+        {
+          color: 'purple darken-1',
+          icon: 'mdi-book-variant',
+          titulo:'Proceso 2',
+          descripcion:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, maxime? Itaque dolore, natus repellendus nostrum ullam magni voluptate, perferendis eum facilis commodi consectetur provident, amet error quam delectus? Illo, cumque?',
+          archivo:0
+        },
+        {
+          color: 'green lighten-1',
+          icon: 'mdi-airballoon',
+          titulo:'Proceso 3',
+          descripcion:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, maxime? Itaque dolore, natus repellendus nostrum ullam magni voluptate, perferendis eum facilis commodi consectetur provident, amet error quam delectus? Illo, cumque?',
+          archivo:0
+        },
+        {
+          color: 'indigo',
+          icon: 'mdi-buffer',
+          titulo:'Proceso 1',
+          descripcion:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, maxime? Itaque dolore, natus repellendus nostrum ullam magni voluptate, perferendis eum facilis commodi consectetur provident, amet error quam delectus? Illo, cumque?',
+          archivo:1
+        }
+        ],
+        
+        }
+
+    },
+    components:{
+      Proceso
+    }
 }
 </script>

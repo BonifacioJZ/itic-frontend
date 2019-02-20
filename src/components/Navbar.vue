@@ -77,7 +77,7 @@
           </v-toolbar-title>
         </section>
         <section class="hidden-md-and-up">
-          <v-toolbar-title>
+          <v-toolbar-title >
             <span>ITIC</span>
           </v-toolbar-title>
         </section>
@@ -95,6 +95,7 @@ import logo from '../assets/Calca_TIC.png'
             return{
             logo,
             drawer:true,
+            isMobile:false,
             items:[
               {icon:"home",text:"Home",path:""},
               {icon:"android",text:"About"}
@@ -113,6 +114,12 @@ import logo from '../assets/Calca_TIC.png'
             
             }
         },
+        created(){
+         this.mobile()
+         if(this.isMobile==true){
+           this.drawer=false
+         }
+        },
         methods:{
           cambio(){
             this.drawer= !this.drawer
@@ -122,7 +129,11 @@ import logo from '../assets/Calca_TIC.png'
           },
           link(name){
             this.$router.push({path:`/${name}`})
+          },
+          mobile(){
+            this.isMobile = window.innerWidth < 960
           }
-        }
+        },
+        
     }
 </script>
