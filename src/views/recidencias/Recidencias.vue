@@ -36,7 +36,7 @@ export default {
         {
           color: 'indigo',
           icon: 'mdi-buffer',
-          titulo:'Proceso 1',
+          titulo:'Proceso 4',
           descripcion:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, maxime? Itaque dolore, natus repellendus nostrum ullam magni voluptate, perferendis eum facilis commodi consectetur provident, amet error quam delectus? Illo, cumque?',
           archivo:1
         }
