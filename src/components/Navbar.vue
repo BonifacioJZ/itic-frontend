@@ -31,6 +31,28 @@
         </v-list-tile>
       </v-list>
       <v-list>
+      <v-list-group
+      v-for="(about,i) in informacion"
+      v-model="about.active"
+      :key="i"
+      :prepend-icon="about.icon"
+      no-action>
+        <v-list-tile slot="activator">
+          <v-list-tile-content>
+            <v-list-tile-title>
+              {{ about.text }}
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+        v-for="(subabout,i) in about.items"
+        :key="i"
+        @click="link(subabout.name)">
+          <v-list-tile-content>
+            <v-list-tile-title>{{ subabout.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list-group>
         <v-list-group
           v-for="proceso in procesos"
           v-model="proceso.active"
@@ -97,9 +119,21 @@ import logo from '../assets/Calca_TIC.png'
             drawer:true,
             isMobile:false,
             items:[
-              {icon:"home",text:"Home",path:""},
-              {icon:"android",text:"About"}
+              {icon:"home",text:"Home",path:""}
               ],
+            informacion:[
+              {
+              icon:"priority_high",
+              text:"Informacion",
+              active:false,
+              items:[
+                {title:"¿Quienes somos?",name:"somos"},
+                {title:"Mision",name:"mision"},
+                {title:"Vision",name:"vision"},
+                {title:"Valores",name:"valores"}
+              ]
+              }
+            ],
             procesos:[
               {
                 icon:"cached",
@@ -132,6 +166,9 @@ import logo from '../assets/Calca_TIC.png'
           },
           mobile(){
             this.isMobile = window.innerWidth < 960
+          },
+          linkbug(name){
+            console.log(name)
           }
         },
         
